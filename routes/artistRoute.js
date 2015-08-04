@@ -56,15 +56,18 @@ if (!artistObj.email || !artistObj.first_name || !artistObj.last_name ||
 					if (counter) {
 						req.body.artist_id = counter.value.sequence_value;
 					// here we will save the image file and then add the user
-		
-					mv(req.files.profile_image[0].path, "./public/artistImages/"+req.body.artist_id+".png", function(err) {
+					if (req.files.length>0) {
+
+						mv(req.files.profile_image[0].path, "./public/artistImages/"+req.body.artist_id+".png", function(err) {
             		   if (err) { 
                				var msg = "mv err block "+err;
 							res.json({"status":false , "msg":msg});
                				}
               		 });
 
-            		req.body.profile_image = "/artistImages/"+req.body.artist_id+".png"; 
+            		req.body.profile_image = "/artistImages/"+req.body.artist_id+".png";
+					}
+					 
 
 
 					Artist.addArtist(req.body,function(err,data)
