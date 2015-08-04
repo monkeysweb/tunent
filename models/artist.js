@@ -21,7 +21,7 @@ artistSchema.statics.getArtists = function (artistemail, callback) {
 	if (artistemail=="") {
  		return this.find(callback);
 	}else{
-		 return this.find({ email: artistemail }, callback);
+		 return this.findOne({ email: artistemail }, callback);
 	}
  
 }
