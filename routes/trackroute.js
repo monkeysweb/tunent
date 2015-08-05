@@ -56,7 +56,7 @@ router.post('/addTrack',function(req,res,next)
 
             					req.body.cover_art = "/trackImages/"+req.body.track_id+".png"; 
             				//this is for  the track
-            				
+
             					mv(req.files.stream_url[0].path, "./public/tracks/"+req.body.track_id+".mp3", function(err) {
             		   				if (err) { 
                							var msg = "mv err block "+err;
@@ -150,8 +150,26 @@ router.post('/likeTrack',function(req,res,next)
 		}
 		if (data) {
 			if (data.artist_id == req.body.artist_id) {
+				// user is valid 
+				// now we will check whether this user already liked this track
+				//if true nothing will happen and if false we will update the like count for the track and also add new entry 
+				// in the like collection
 
-				Track.updateTrack(req.body,function(err,data)
+				Like.checkForDuplicateEntry(req.body,function(err,data){
+
+					if (err) {
+						var msg = "Like.checkForDuplicateEntry in likeTrack err block "+err;
+							res.json({"status":false , "msg":msg});
+						}
+					if (data) {
+						//duplicate entry
+						res.json({"status":false,"msg":"You have already liked this track"});
+					}else
+					{
+					//	update the like count for the track and also add new entry 
+					// in the like collection
+
+						Track.updateTrack(req.body,function(err,data)
 					{
 						if (err) {
 							var msg = "Track.updateTrack in likeTrack err block "+err;
@@ -177,6 +195,10 @@ router.post('/likeTrack',function(req,res,next)
 							
 								}
 					});
+					}
+
+				});
+	
 			}
 		}else{
 			res.json({"status":true ,"msg":"You are not allowed"});
