@@ -41,7 +41,7 @@ if (!artistObj.email || !artistObj.first_name || !artistObj.last_name
 		}
 		if (data) {
 			if (data.email == req.body.email) {
-				res.json({"status":true ,"msg":"Email already exist"});
+				res.json({"status":false ,"msg":"Email already exist"});
 			}
 		}else{
 				// get new artist id

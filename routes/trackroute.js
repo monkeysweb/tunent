@@ -45,6 +45,8 @@ router.post('/addTrack',function(req,res,next)
 							req.body.track_id = counter.value.sequence_value;
 
 							//this is for coverart of the track
+
+
 								mv(req.files.cover_art[0].path, "./public/trackImages/"+req.body.track_id+".png", function(err) {
             		   				if (err) { 
                							var msg = "mv err block "+err;
@@ -54,6 +56,7 @@ router.post('/addTrack',function(req,res,next)
 
             					req.body.cover_art = "/trackImages/"+req.body.track_id+".png"; 
             				//this is for  the track
+            				
             					mv(req.files.stream_url[0].path, "./public/tracks/"+req.body.track_id+".mp3", function(err) {
             		   				if (err) { 
                							var msg = "mv err block "+err;
