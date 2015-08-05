@@ -26,12 +26,10 @@ router.get('/getAllArtists', function(req, res, next) {
 
 router.post('/registerArtist' ,function(req, res, next) {
 console.log(req.file);     console.log(req.files);   var artistObj = req.body;
-if (!artistObj.email || !artistObj.first_name || !artistObj.last_name ||
-!artistObj.genre || !artistObj.bio || !artistObj.fbPageUrl || !artistObj.soundcloudUrl || 
-!artistObj.twitterhandle || !artistObj.websiteUrl || !req.file.profile_image || !artistObj.location 
-|| !artistObj.usertype) {
+if (!artistObj.email || !artistObj.first_name || !artistObj.last_name 
+				|| !artistObj.usertype) { 
 
-	res.json({"status":false , "msg": "Some parameter missing"});
+			res.json({"status":false , "msg": "Some parameter missing"});
 }else{
 
 	Artist.alreadyexistEmail(req.body.email,function(err,data)
