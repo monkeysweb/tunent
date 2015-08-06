@@ -279,6 +279,53 @@ router.post('/skipTrack',function(req,res,next)
 	});
 })
 
+router.post('/likedTrack',function(req,res,next)
+{
+	var artistId = req.body.artist_id;
+	console.log(artistId);
+	
+
+	Like.allTrackIdsLikedByArtistId(artistId,function(err,data)
+	{
+		if (err) {
+			var msg = "Like.allTrackIdsLikedByArtistId err block "+err;
+			res.json({"status":false , "msg":msg});
+		}
+		if (data) {
+			var length = data.length;
+			var likedTrackArray = [];
+			data.forEach(function (item, index, array) {
+  						var trackId = item.track_id;
+
+  						Track.trackDetail(trackId,function(err,data)
+  						{
+  							if (err) {
+  								var msg = "Track.trackDetail err block "+err;
+								res.json({"status":false , "msg":msg});
+  							}
+  							if (data) {
+  									likedTrackArray.push(data);
+  									if (likedTrackArray.length==length) {
+  										res.json({"status":true,"msg":"Liked Tracks","data":likedTrackArray});
+  									};
+
+  							}
+
+
+  						});
+  						
+				});
+
+			
+
+		};
+	});
+
+
+
+
+})
+
 
 
 module.exports = router;

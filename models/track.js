@@ -40,5 +40,9 @@ trackSchema.statics.updateTrack = function (track, callback) {
  
 }
 
+trackSchema.statics.trackDetail = function (trackId, callback)
+{
+	this.findOne({track_id:trackId}, callback);
+}
 
 module.exports = mongoose.model('track',trackSchema,'track');
