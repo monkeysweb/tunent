@@ -1,0 +1,38 @@
+{
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "local",
+            "path": "../phonegap-facebook-plugin"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "879783368757618",
+            "APP_NAME": "Tunent"
+        }
+    },
+    "com.oauthio.plugins.oauthio": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/oauth-io/oauth-phonegap",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.inappbrowser"
+        },
+        "is_top_level": false,
+        "variables": {}
+    }
+}

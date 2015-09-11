@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/ronniekinsley/All%20Projects/Freelance%20Projects/FacebookTest/platforms/android/com.phonegap.plugins.facebookconnect/hellocordova-FacebookLib/res/values-ldpi/dimens.xml -->
+    <eat-comment/>
+    <dimen name="com_facebook_picker_divider_width">1px</dimen>
+</resources>
