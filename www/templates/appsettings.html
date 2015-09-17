@@ -1,0 +1,109 @@
+<ion-view view-title="App Settings" title="Settings">
+    <ion-nav-bar class="bar-balanced bar-custom-tunent">
+        <ion-nav-back-button transitiontype="slide" direction="right" go-native></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear button-light">
+            Done
+        </button>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="true" has-header="true">
+        <h3 style="margin-top: 35px;color: grey; margin-left: 15px">NOTIFICATIONS</h3>
+        <ion-list>
+            <ion-item>
+                <ion-toggle class="subhead" ng-model="airplaneMode" toggle-class="toggle-calm">New Tracks from liked Artists</ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-toggle class="subhead" ng-model="airplaneMode" toggle-class="toggle-calm">Tunent Updates</ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-toggle class="subhead" ng-model="airplaneMode" toggle-class="toggle-calm">New Track Likes</ion-toggle>
+            </ion-item>
+        </ion-list>
+        <div id="other" class="list">
+            <ion-item class="item">
+                <!--ui-sref="settings.app" transitiontype="slide" direction="left" go-native-->
+                <a  class="item item-icon-right" href="#">
+                    <h2 class="subhead">Privacy Policy</h2>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </a>
+            </ion-item>
+            <ion-item class="item">
+                <!--ui-sref="settings.app" transitiontype="slide" direction="left" go-native-->
+                <a  class="item item-icon-right" href="#">
+                    <h2 class="subhead">Terms of Service</h2>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </a>
+            </ion-item>
+        </div>
+        <div style="margin-top: 80px;" class="list padding">
+            <button class="button button-block button-light">
+                I'm a musician
+            </button>
+            <button class="button button-block button-light">
+                Logout
+            </button>
+        </div>
+        <!--<div id="profile-bg"></div>-->
+        <!--<div id="content">-->
+        <!--<div id="profile-info">-->
+        <!--<img id="profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">-->
+        <!--<h3 id="profile-name">John Doe</h3>-->
+        <!--<span id="profile-description">Co-creator of <a href="http://twitter.com/ionicframework">@ionicframework</a>, founder of-->
+        <!--<a href="http://twitter.com/driftyco">@driftyco</a></span>-->
+        <!--</div>-->
+        <!--<ion-list>-->
+        <!--<ion-item>-->
+        <!--<label class="item item-radio">-->
+        <!--<input type="radio" name="group">-->
+        <!--<div class="item-content">-->
+        <!--Go-->
+        <!--</div>-->
+        <!--<i class="radio-icon ion-checkmark"></i>-->
+        <!--</label>-->
+        <!--&lt;!&ndash;<h2 style="font-weight: bold" class="theme">App Settings</h2>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a class="item item-icon-right" href="#">&ndash;&gt;-->
+        <!--&lt;!&ndash;<h2 style="font-weight: bold" class="theme">App Settings</h2>&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="icon ion-chevron-right icon-accessory"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="subhead">Push notifications, Account, Legal stuff</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="icon ion-chevron-right icon-accessory"></i>&ndash;&gt;-->
+        <!--</ion-item>-->
+        <!--<ion-item>-->
+        <!--&lt;!&ndash;<h2 style="font-weight: bold" class="theme">App Settings</h2>&ndash;&gt;-->
+        <!--<a class="item item-icon-right" href="#">-->
+        <!--<h2 style="font-weight: bold" class="theme">Support</h2>-->
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        <!--<p class="subhead">FAQ, Contact</p>-->
+        <!--</a>-->
+        <!--&lt;!&ndash;<i class="icon ion-chevron-right icon-accessory"></i>&ndash;&gt;-->
+        <!--</ion-item>                <ion-item>-->
+        <!--&lt;!&ndash;<h2 style="font-weight: bold" class="theme">App Settings</h2>&ndash;&gt;-->
+        <!--<a class="item item-icon-right" href="#">-->
+        <!--<h2 style="font-weight: bold" class="theme">Share Tunent</h2>-->
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        <!--<p class="subhead">FAQ, Contact</p>-->
+        <!--</a>-->
+        <!--&lt;!&ndash;<i class="icon ion-chevron-right icon-accessory"></i>&ndash;&gt;-->
+        <!--</ion-item>                <ion-item>-->
+        <!--&lt;!&ndash;<h2 style="font-weight: bold" class="theme">App Settings</h2>&ndash;&gt;-->
+        <!--<a class="item item-icon-right" href="#">-->
+        <!--<h2 style="font-weight: bold" class="theme">Rate Tunent</h2>-->
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        <!--<p class="subhead">FAQ, Contact</p>-->
+        <!--</a>-->
+        <!--&lt;!&ndash;<i class="icon ion-chevron-right icon-accessory"></i>&ndash;&gt;-->
+        <!--</ion-item>-->
+        <!--&lt;!&ndash;<ion-item ng-repeat="post in posts">&ndash;&gt;-->
+        <!--&lt;!&ndash;<img class="post-profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">&ndash;&gt;-->
+        <!--&lt;!&ndash;{{post.text}}&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="post-time">{{post.created_at }}</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="post-options">&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="icon-reply"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="icon-shuffle"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</ion-item>&ndash;&gt;-->
+        <!--</ion-list>-->
+        </div>
+    </ion-content>
+</ion-view>

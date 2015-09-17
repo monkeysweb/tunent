@@ -51,6 +51,18 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -76,6 +88,10 @@
                         },
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NativePageTransitions\"><param name=\"ios-package\" value=\"NativePageTransitions\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -109,12 +125,20 @@
         "com.oauthio.plugins.oauthio": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "org.apache.cordova.device": {},
+        "org.apache.cordova.splashscreen": {},
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "879783368757618",
             "APP_NAME": "Tunent",
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-whitelist": {
+        "com.telerik.plugins.nativepagetransitions": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },

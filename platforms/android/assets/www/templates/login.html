@@ -1,9 +1,26 @@
-<ion-view view-title="Some">
-<ion-content>
+<ion-view view-title="Login">
+<ion-content scroll="false">
     <div class="background-image"></div>
     <div class="wrapper">
-        <button id="tust" ng-click="hey()" class="button button-outline button-calm">Login via Facebook</button>
-        <button ng-click="SoundCloudLogin()" id="bust" class="button button-outline button-positive">I'm a musician</button>
+        <div id="ico" class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                <img width="50%" height="auto" src="./img/logo%20(1).png">
+            </div>
+            <div class="col"></div>
+        </div>
+        <div id="tust" class="row row-center">
+
+            <div class="col">
+                <button ui-sref="settings.index" class="button button-outline button-calm" transitiontype="slide" direction="left" go-native>Login via Facebook</button>
+            </div>
+        </div>
+        <div id="bust" class="row row-bottom">
+            <div class="col">
+                <button ng-click="SoundCloudLogin()" class="button button-outline button-positive">I'm a musician</button>
+            </div>
+        </div>
     </div>
     </ion-content>
 </ion-view>

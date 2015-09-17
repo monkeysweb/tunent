@@ -34,14 +34,29 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-//var fbLoginSuccess = function (userData) {
-//    alert("UserInfo: " + JSON.stringify(userData));
-//}
-//facebookConnectPlugin.login(["public_profile"],
-//    fbLoginSuccess,
-//    function (error) { alert("" + error) }
-//);
-        facebookConnectPlugin.getLoginStatus(function(userData){alert('Logged in')}, function(error){alert('Logged in')});
+        //alert('Ready');
+var fbLoginSuccess = function (userData) {
+    alert("UserInfo: " + JSON.stringify(userData));
+}
+facebookConnectPlugin.login(["public_profile"],
+    fbLoginSuccess,
+    function (error) { alert("Error" + JSON.stringify(error)) }
+);
+
+//        facebookConnectPlugin.logout(function(){}, function(){});
+//        facebookConnectPlugin.getLoginStatus(function(response){if(response.status=='connected'){
+//            var uid = response.authResponse.userID;
+//            var accessToken = response.authResponse.accessToken;
+//            alert(uid);
+//            alert(accessToken);
+//        }
+//        else{
+//            facebookConnectPlugin.login(["public_profile"],
+//                fbLoginSuccess,
+//                function (error) { alert("" + error) }
+//            );
+//        }
+//        }, function(error){alert('')});
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
