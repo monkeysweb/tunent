@@ -48,6 +48,10 @@
 		1437C983F0BC49D890C6828C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE331BC65EDC400090210AF9 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DF93C40F5CFD491489D30264 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C45DE685B24A569EA2AC01 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3326EA133F6B456C942F4B86 /* NativePageTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9BBD9BC72040F7B6668E8C /* NativePageTransitions.m */; };
+		9F440D3FD2C545ACA3D9F36E /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC4DA3870EB47E692840511 /* CDVFile.m */; };
+		C6D00CF82CD844069E8EFAB1 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1B15E1ED66497FAE4F71B0 /* CDVLocalFilesystem.m */; };
+		2C901174F4EC4436B85A44ED /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 237B2327670943B899A3783C /* CDVAssetLibraryFilesystem.m */; };
+		4C5A24496E934DBC9209FD23 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7634797DE4393BC8CC2F7 /* CDVSound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +130,14 @@
 		21C45DE685B24A569EA2AC01 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		BD9BBD9BC72040F7B6668E8C /* NativePageTransitions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NativePageTransitions.m"; path = "com.telerik.plugins.nativepagetransitions/NativePageTransitions.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		D591F077BA3346919B1F4606 /* NativePageTransitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NativePageTransitions.h"; path = "com.telerik.plugins.nativepagetransitions/NativePageTransitions.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		AAC4DA3870EB47E692840511 /* CDVFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVFile.m"; path = "org.apache.cordova.file/CDVFile.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BA1B15E1ED66497FAE4F71B0 /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocalFilesystem.m"; path = "org.apache.cordova.file/CDVLocalFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		237B2327670943B899A3783C /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAssetLibraryFilesystem.m"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		FB1682BDAEE04D00AEA73740 /* CDVFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFile.h"; path = "org.apache.cordova.file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F5E61435CD754106A7371674 /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocalFilesystem.h"; path = "org.apache.cordova.file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		CF52BECEF5DF42DC9919B609 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		4FC7634797DE4393BC8CC2F7 /* CDVSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSound.m"; path = "org.apache.cordova.media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		309FE5DDEDF44222931439F2 /* CDVSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSound.h"; path = "org.apache.cordova.media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +254,14 @@
 				13BD893E58DB4473A3082391 /* FacebookConnectPlugin.h */,
 				BD9BBD9BC72040F7B6668E8C /* NativePageTransitions.m */,
 				D591F077BA3346919B1F4606 /* NativePageTransitions.h */,
+				AAC4DA3870EB47E692840511 /* CDVFile.m */,
+				BA1B15E1ED66497FAE4F71B0 /* CDVLocalFilesystem.m */,
+				237B2327670943B899A3783C /* CDVAssetLibraryFilesystem.m */,
+				FB1682BDAEE04D00AEA73740 /* CDVFile.h */,
+				F5E61435CD754106A7371674 /* CDVLocalFilesystem.h */,
+				CF52BECEF5DF42DC9919B609 /* CDVAssetLibraryFilesystem.h */,
+				4FC7634797DE4393BC8CC2F7 /* CDVSound.m */,
+				309FE5DDEDF44222931439F2 /* CDVSound.h */,
 			);
 			name = Plugins;
 			path = "HelloCordova/Plugins";
@@ -430,6 +450,10 @@
 				8D59B3740D59452E8FB18E37 /* CDVStatusBar.m in Sources */,
 				8C95D1D32143438FB6E1E0B6 /* FacebookConnectPlugin.m in Sources */,
 				3326EA133F6B456C942F4B86 /* NativePageTransitions.m in Sources */,
+				9F440D3FD2C545ACA3D9F36E /* CDVFile.m in Sources */,
+				C6D00CF82CD844069E8EFAB1 /* CDVLocalFilesystem.m in Sources */,
+				2C901174F4EC4436B85A44ED /* CDVAssetLibraryFilesystem.m in Sources */,
+				4C5A24496E934DBC9209FD23 /* CDVSound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

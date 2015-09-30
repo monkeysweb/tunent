@@ -145,6 +145,20 @@ div#bust{
     position: absolute;
     bottom: 0%;
 }
+div#tust1 {
+    position: absolute;
+    top: 25%;
+}
+div#bust1
+{
+    position: absolute;
+    top: 37%;
+}
+div#infocard
+{
+    position: absolute;
+    top: 50%;
+}
 .bar-custom-tunent{
     background-color: #FC8053 !important;
 }
@@ -248,3 +262,31 @@ div#bust{
     right:0px !important;
 
 }
+
+.progress-wrapper{
+    position: relative;
+    margin:20px auto;
+    font-size: 40px;
+}
+
+.progress{
+    position: absolute;
+    color: #bbb;
+    font-weight: 100;
+    line-height: 1;
+}
+
+.container{
+    width: 100%;
+    max-width: 960px;
+    margin:100px auto;
+    text-align: center;
+}
+.round-progress{
+    overflow: visible !important;
+}
+.title.title-center.header-item {
+     font-weight: bold;
+     font-size: x-large;
+ }
+

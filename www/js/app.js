@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','ngCordova','ui.router'])
+angular.module('starter', ['ionic','ngCordova','ui.router','ionic-audio','angular-svg-round-progress'])
 
 .run(function($ionicPlatform,$ionicHistory,$cordovaStatusbar,$rootScope, $urlRouter,$location,$state) {
         $ionicPlatform.registerBackButtonAction(function () {
@@ -79,6 +79,16 @@ angular.module('starter', ['ionic','ngCordova','ui.router'])
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
     });
+        $stateProvider.state('artistlogin', {
+            url: '/artistlogin',
+            templateUrl: 'templates/artistlogin.html',
+            controller: 'artistloginCtrl'
+        });
+        $stateProvider.state('discover', {
+        url: '/discover',
+        templateUrl: 'templates/discover.html',
+        controller: 'discoverCtrl'
+    });
         $stateProvider.state('settings', {
             url: '/settings',
             abstract:true,
@@ -131,6 +141,20 @@ angular.module('starter', ['ionic','ngCordova','ui.router'])
                 });
             });
         };
+}).controller('artistloginCtrl', function($scope,$state) {
+        $scope.gotoAppSettings=function(){
+            $state.go('login');
+            window.plugins.nativepagetransitions.slide({
+                    "direction": 'right'
+                },
+                function(msg) {
+                    console.log("success: " + msg);
+                },
+                function(msg) {
+                    alert("error: " + msg)
+                }
+            )
+        };
 })
     .controller('settingsCtrl', function($scope,$state) {
         $scope.gotoAppSettings=function(){
@@ -168,6 +192,15 @@ angular.module('starter', ['ionic','ngCordova','ui.router'])
         //        text: 'Doing a bit of ' + ((Math.floor(Math.random() * 2) === 1) ? 'that' : 'this')
         //    });
         //}
+    })
+    .controller('discoverCtrl', function($scope) {
+        console.log('In Discover');
+        $scope.myTrack = {
+            url: 'http://www.thedatasin.net/mp32/R/Red%20Hot%20Chili%20Peppers/By%20The%20Way/06%20The%20Zephyr%20Song.mp3',
+            artist: 'Somebody',
+            title: 'Song name',
+            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+        }
     })
     .directive('goNative', ['$ionicGesture', '$ionicPlatform', function($ionicGesture, $ionicPlatform) {
     return {
@@ -269,7 +302,18 @@ angular.module('starter', ['ionic','ngCordova','ui.router'])
     };
 }]);
 
+angular.module('angular-svg-round-progress').config(['$provide', function($provide) {
+    $provide.decorator('roundProgressDirective', ['$delegate', function($delegate){
+        var directive = $delegate[0];
 
+        directive.compile = function(element){
+            element.find('path').eq(0).attr('marker-start', 'url(#circle)');
+            return directive.link;
+        };
+
+        return $delegate;
+    }]);
+}]);
 
 
 

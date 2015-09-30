@@ -42,6 +42,49 @@ facebookConnectPlugin.login(["public_profile"],
     fbLoginSuccess,
     function (error) { alert("Error" + JSON.stringify(error)) }
 );
+//        var svg = document.querySelector('svg.round-progress');
+//        //class="draggable"
+//        $('path').addClass('draggable');
+//        console.log($('path'));
+//        console.log('HERE COMETH THE SVG'+svg);
+//// Create an SVGPoint for future math
+//        var pt = svg.createSVGPoint();
+//        var elem = document.querySelector('.draggable');
+//        var draggie = new Draggabilly( elem, {
+//            containment: 'true'
+//        });
+//// Get point in global SVG space
+//        function cursorPoint(evt){
+//            pt.x = evt.targetTouches[0].clientX; pt.y = evt.targetTouches[0].clientY;
+//            return pt.matrixTransform(svg.getScreenCTM().inverse());
+//        }
+//// function angle(ex, ey) {
+////   var dy = ey - 100;
+////   var dx = ex - 100;
+////   var theta = Math.atan2(dy, dx); // range (-PI, PI]
+////   theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
+////   //if (theta < 0) theta = 360 + theta; // range [0, 360)
+////   return theta;
+//// }
+//        function angle(center, p1) {
+//            var p0 = {x: center.x, y: center.y - Math.sqrt(Math.abs(p1.x - center.x) * Math.abs(p1.x - center.x)
+//                + Math.abs(p1.y - center.y) * Math.abs(p1.y - center.y))};
+//            return (2 * Math.atan2(p1.y - p0.y, p1.x - p0.x)) * 180 / Math.PI;
+//        }
+//        svg.addEventListener('touchstart',function(evt){
+//            var loc = cursorPoint(evt);
+//            // Use loc.x and loc.y here
+//            // console.log(Math.sqrt((100-loc.x)*(100-loc.x) + (100-loc.y)*(100-loc.y)));
+//            // console.log(Math.sqrt((100-loc.x)*(100-loc.x) + (100-loc.y)*(100-loc.y)) > 93 && Math.sqrt((100-loc.x)*(100-loc.x) + (100-loc.y)*(100-loc.y)) < 100)
+//            // console.log(Math.atan2( (loc.y), (loc.x)) * (180 / Math.PI));
+//            console.log("X: "+loc.x+" Y: "+loc.y);
+//            console.log(angle({x:100,y:100},{x:loc.x,y:loc.y}));
+//            console.log((2*Math.PI*100*(angle({x:100,y:100},{x:loc.x,y:loc.y})/360)/627)*angular.element(document.querySelector('#circle1')).scope().myTrack.duration);
+//            console.log(angular.element(document.querySelector('#circle1')).scope().myTrack.progress);
+//            angular.element(document.querySelector('#circle1')).scope().myTrack.progress=(2*Math.PI*100*(angle({x:100,y:100},{x:loc.x,y:loc.y})/360)/628.32)*angular.element(document.querySelector('#circle1')).scope().myTrack.duration;
+//            angular.element(document.querySelector('#circle')).scope().sliderRelease();
+//            angular.element(document.querySelector('#circle')).scope().$apply();
+//        } );
 
 //        facebookConnectPlugin.logout(function(){}, function(){});
 //        facebookConnectPlugin.getLoginStatus(function(response){if(response.status=='connected'){
