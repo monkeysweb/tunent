@@ -1,4 +1,10 @@
 <ion-view view-title="Music">
+    <ion-nav-bar class="bar-balanced bar-custom-tunent">
+        <!--<ion-nav-back-button transitiontype="slide" direction="right" go-native></ion-nav-back-button>-->
+    </ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <input ng-click="gotoSettings()" style="width: 40px" type="image" src="./img/logo%20(1).png" alt="Submit">
+    </ion-nav-buttons>
     <ion-content id="circle1">
         <ion-audio-track track="myTrack">
         <div class="list list-inset">

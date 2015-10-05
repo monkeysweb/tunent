@@ -145,6 +145,20 @@ div#bust{
     position: absolute;
     bottom: 0%;
 }
+div#tust1 {
+    position: absolute;
+    top: 25%;
+}
+div#bust1
+{
+    position: absolute;
+    top: 37%;
+}
+div#infocard
+{
+    position: absolute;
+    top: 50%;
+}
 .bar-custom-tunent{
     background-color: #FC8053 !important;
 }
@@ -271,3 +285,8 @@ div#bust{
 .round-progress{
     overflow: visible !important;
 }
+.title.title-center.header-item {
+     font-weight: bold;
+     font-size: x-large;
+ }
+

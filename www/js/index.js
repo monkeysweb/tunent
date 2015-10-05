@@ -35,13 +35,10 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         //alert('Ready');
-var fbLoginSuccess = function (userData) {
-    alert("UserInfo: " + JSON.stringify(userData));
-}
-facebookConnectPlugin.login(["public_profile"],
-    fbLoginSuccess,
-    function (error) { alert("Error" + JSON.stringify(error)) }
-);
+//facebookConnectPlugin.login(["public_profile"," manage_pages"],
+//    fbLoginSuccess,
+//    function (error) { alert("Error" + JSON.stringify(error)) }
+//);
 //        var svg = document.querySelector('svg.round-progress');
 //        //class="draggable"
 //        $('path').addClass('draggable');
@@ -86,20 +83,7 @@ facebookConnectPlugin.login(["public_profile"],
 //            angular.element(document.querySelector('#circle')).scope().$apply();
 //        } );
 
-//        facebookConnectPlugin.logout(function(){}, function(){});
-//        facebookConnectPlugin.getLoginStatus(function(response){if(response.status=='connected'){
-//            var uid = response.authResponse.userID;
-//            var accessToken = response.authResponse.accessToken;
-//            alert(uid);
-//            alert(accessToken);
-//        }
-//        else{
-//            facebookConnectPlugin.login(["public_profile"],
-//                fbLoginSuccess,
-//                function (error) { alert("" + error) }
-//            );
-//        }
-//        }, function(error){alert('')});
+        //facebookConnectPlugin.logout(function(){}, function(){});
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

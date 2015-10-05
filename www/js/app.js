@@ -123,11 +123,50 @@ angular.module('starter', ['ionic','ngCordova','ui.router','ionic-audio','angula
             }
         })
 })
-.controller('loginCtrl', function($scope) {
-        $scope.hey=function(){
-            SC.get("/groups/55517/tracks", {limit: 1}, function(tracks){
-                alert("Latest track: " + tracks[0].title);
-            });
+.controller('loginCtrl', function($scope,$state) {
+        //$scope.$on("$ionicView.loaded", function() {
+        //
+        //});
+        var fbLoginSuccess = function (userData) {
+            alert("UserInfo: " + JSON.stringify(userData));
+            $state.go('discover');
+            window.plugins.nativepagetransitions.slide({
+                    "direction": 'left'
+                },
+                function(msg) {
+                    console.log("success: " + msg);
+                },
+                function(msg) {
+                    alert("error: " + msg)
+                }
+            )
+        }
+        $scope.checkLogin=function(){
+            facebookConnectPlugin.getLoginStatus(function(response){
+                if(response.status=='connected'){
+                    var uid = response.authResponse.userID;
+                    var accessToken = response.authResponse.accessToken;
+                    alert('Already logged-in. UUID: '+uid);
+                    alert('Access Token: '+accessToken);
+                    $state.go('discover');
+                    window.plugins.nativepagetransitions.slide({
+                            "direction": 'left'
+                        },
+                        function(msg) {
+                            console.log("success: " + msg);
+                        },
+                        function(msg) {
+                            alert("error: " + msg)
+                        }
+                    )
+                }
+                else{
+                    facebookConnectPlugin.login(["public_profile"," manage_pages"],
+                        fbLoginSuccess,
+                        function (error) { alert("" + error) }
+                    );
+                }
+            }, function(error){alert('error '+error)});
         }
         $scope.SoundCloudLogin=function(){
             // initiate auth popup
@@ -154,6 +193,45 @@ angular.module('starter', ['ionic','ngCordova','ui.router','ionic-audio','angula
                     alert("error: " + msg)
                 }
             )
+        };
+        $scope.checkLogin=function(){
+            facebookConnectPlugin.getLoginStatus(function(response){
+                if(response.status=='connected'){
+                    var uid = response.authResponse.userID;
+                    var accessToken = response.authResponse.accessToken;
+                    alert('Already logged-in. UUID: '+uid);
+                    alert('Access Token: '+accessToken);
+                    $state.go('discover');
+                    window.plugins.nativepagetransitions.slide({
+                            "direction": 'left'
+                        },
+                        function(msg) {
+                            console.log("success: " + msg);
+                        },
+                        function(msg) {
+                            alert("error: " + msg)
+                        }
+                    )
+                }
+                else{
+                    facebookConnectPlugin.login(["public_profile"," manage_pages"],
+                        fbLoginSuccess,
+                        function (error) { alert("" + error) }
+                    );
+                }
+            }, function(error){alert('error '+error)});
+        };
+        $scope.SoundCloudLogin=function(){
+            // initiate auth popup
+            SC.initialize({
+                client_id: 'e7a47f54bbfac42ca2b1cb1da4e42b2e',
+                redirect_uri: 'http://www.google.com'
+            });
+            SC.connect(function() {
+                SC.get('/me', function(me) {
+                    alert('Hello, ' + me.username);
+                });
+            });
         };
 })
     .controller('settingsCtrl', function($scope,$state) {
@@ -193,7 +271,65 @@ angular.module('starter', ['ionic','ngCordova','ui.router','ionic-audio','angula
         //    });
         //}
     })
-    .controller('discoverCtrl', function($scope) {
+    .controller('discoverCtrl', function($scope,$state) {
+        $scope.gotoSettings=function(){
+            $state.go('settings.index');
+            window.plugins.nativepagetransitions.slide({
+                    "direction": 'left'
+                },
+                function(msg) {
+                    console.log("success: " + msg);
+                },
+                function(msg) {
+                    alert("error: " + msg)
+                }
+            )
+        };
+        $scope.$on("$ionicView.loaded", function() {
+        var svg = document.querySelector('svg.round-progress');
+        //class="draggable"
+        $('path').addClass('draggable');
+        console.log($('path'));
+        console.log('HERE COMETH THE SVG'+svg);
+// Create an SVGPoint for future math
+        var pt = svg.createSVGPoint();
+        var elem = document.querySelector('.draggable');
+        var draggie = new Draggabilly( elem, {
+            containment: 'true'
+        });
+// Get point in global SVG space
+        function cursorPoint(evt){
+            pt.x = evt.targetTouches[0].clientX; pt.y = evt.targetTouches[0].clientY;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
+// function angle(ex, ey) {
+//   var dy = ey - 100;
+//   var dx = ex - 100;
+//   var theta = Math.atan2(dy, dx); // range (-PI, PI]
+//   theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
+//   //if (theta < 0) theta = 360 + theta; // range [0, 360)
+//   return theta;
+// }
+        function angle(center, p1) {
+            var p0 = {x: center.x, y: center.y - Math.sqrt(Math.abs(p1.x - center.x) * Math.abs(p1.x - center.x)
+                + Math.abs(p1.y - center.y) * Math.abs(p1.y - center.y))};
+            return (2 * Math.atan2(p1.y - p0.y, p1.x - p0.x)) * 180 / Math.PI;
+        }
+        svg.addEventListener('touchstart',function(evt){
+            var loc = cursorPoint(evt);
+            // Use loc.x and loc.y here
+            // console.log(Math.sqrt((100-loc.x)*(100-loc.x) + (100-loc.y)*(100-loc.y)));
+            // console.log(Math.sqrt((100-loc.x)*(100-loc.x) + (100-loc.y)*(100-loc.y)) > 93 && Math.sqrt((100-loc.x)*(100-loc.x) + (100-loc.y)*(100-loc.y)) < 100)
+            // console.log(Math.atan2( (loc.y), (loc.x)) * (180 / Math.PI));
+            console.log("X: "+loc.x+" Y: "+loc.y);
+            console.log(angle({x:100,y:100},{x:loc.x,y:loc.y}));
+            console.log((2*Math.PI*100*(angle({x:100,y:100},{x:loc.x,y:loc.y})/360)/627)*angular.element(document.querySelector('#circle1')).scope().myTrack.duration);
+            console.log(angular.element(document.querySelector('#circle1')).scope().myTrack.progress);
+            angular.element(document.querySelector('#circle1')).scope().myTrack.progress=(2*Math.PI*100*(angle({x:100,y:100},{x:loc.x,y:loc.y})/360)/628.32)*angular.element(document.querySelector('#circle1')).scope().myTrack.duration;
+            angular.element(document.querySelector('#circle')).scope().sliderRelease();
+            angular.element(document.querySelector('#circle')).scope().$apply();
+        } );
+        });
         console.log('In Discover');
         $scope.myTrack = {
             url: 'http://www.thedatasin.net/mp32/R/Red%20Hot%20Chili%20Peppers/By%20The%20Way/06%20The%20Zephyr%20Song.mp3',

@@ -30,7 +30,7 @@ angular.module('ionic-audio', ['ionic'])
             if (!currentTrack) return;
 
             playerTimer = $interval(function() {
-                if ( currentTrack.duration < 0){
+                if ( currentTrack.duration <= 0){
                     currentTrack.duration = currentMedia.getDuration();
                 }
 
@@ -168,7 +168,7 @@ angular.module('ionic-audio', ['ionic'])
                     onStatusChange: statusChange,
                     onProgress: progressChange,
                     status: 0,
-                    duration: -1,
+                    duration: 0,
                     progress: 0
                 });
 
@@ -230,7 +230,7 @@ angular.module('ionic-audio', ['ionic'])
 
                 $scope.track.progress = 0;
                 $scope.track.status = 0;
-                $scope.track.duration = 1;
+                $scope.track.duration = 0;
 
                 var playbackSuccess = function() {
                     $scope.track.status = 0;
@@ -413,7 +413,7 @@ angular.module('ionic-audio', ['ionic'])
                 scope.track = {
                     progress: 0,
                     status: 0,
-                    duration: -1
+                    duration: 0
                 };
 
                 if (!angular.isDefined(attrs.displayTime)) {
